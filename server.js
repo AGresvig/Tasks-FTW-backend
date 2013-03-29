@@ -19,19 +19,11 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(path.join(__dirname, '../public')));
 });
 
 app.configure('development', function(){
   app.use(express.errorHandler());
-});
-
-app.get('/', function(req, res){
-    res.send('Hello World');
-});
-
-app.get('/tasks', function(req, res){
-    res.sendfile(__dirname + '/public/index.html');
 });
 
 //API routes
